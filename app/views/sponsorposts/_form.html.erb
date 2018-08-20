@@ -21,10 +21,7 @@
     <%= form.text_area :content %>
   </div>
 
-  <div class="field">
-    <%= form.label :post_id %>
-    <%= form.text_field :post_id %>
-  </div>
+  <%= form.hidden_field :post_id, value: current_user.uid.to_s %>
 
   <div class="actions">
     <%= form.submit %>

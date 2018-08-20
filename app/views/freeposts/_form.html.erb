@@ -1,13 +1,29 @@
+<%= form_with(model: freepost, local: true) do |form| %>
+  <% if freepost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(freepost.errors.count, "error") %> prohibited this graduate from being saved:</h2>
 
+      <ul>
+      <% freepost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<form action="/freeposts/create" method="post">
-  <input type="hidden" name="post_id" value="<%= current_user.uid.to_s %>" type="text">
-  <p>Title: </p>
-  <input type="text" name="title" required>
-  <br>
-  <p>Content: </p>
-  <textarea name="content" rows="8" cols="80" type ='text'></textarea>
-  <br>
-  <button type="submit" > Submit </button>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
 
-</form>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <%= form.hidden_field :post_id, value: current_user.uid.to_s %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

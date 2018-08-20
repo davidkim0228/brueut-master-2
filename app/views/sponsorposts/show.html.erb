@@ -21,7 +21,7 @@
     <strong>Commenter:</strong>
     <%= comment.commenter %>
   </p>
- 
+
   <p>
     <strong>Comment:</strong>
     <%= comment.body %>
@@ -36,10 +36,7 @@
 
 <h2>Add a comment:</h2>
 <%= form_with(model: [ @sponsorpost, @sponsorpost.sponsor_comments.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
+  <%= form.hidden_field :commenter, value: current_user.uid.to_s %>
   <p>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
@@ -51,4 +48,3 @@
 
 <%= link_to 'Edit', edit_sponsorpost_path(@sponsorpost) %> |
 <%= link_to 'Back', sponsorposts_path %>
-

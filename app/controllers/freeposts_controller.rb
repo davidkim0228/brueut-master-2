@@ -24,16 +24,17 @@ class FreepostsController < ApplicationController
   # POST /freeposts
   # POST /freeposts.json
   def create
-    @freepost = Freepost.new
-    @freepost.post_id = params[:post_id]
-    @freepost.title = params[:title]
-    @freepost.content = params[:content]
+    @freepost = Freepost.new(freepost_params)
 
+    respond_to do |format|
       if @freepost.save
-        redirect_to @freepost
+        format.html { redirect_to @freepost, notice: 'Freepost was successfully created.' }
+        format.json { render :show, status: :created, location: @freepost }
       else
-        render 'new'
+        format.html { render :new }
+        format.json { render json: @freepost.errors, status: :unprocessable_entity }
       end
+    end
   end
   # PATCH/PUT /freeposts/1
   # PATCH/PUT /freeposts/1.json
@@ -65,8 +66,8 @@ class FreepostsController < ApplicationController
       @freepost = Freepost.find(params[:id])
     end
 
-    # # Never trust parameters from the scary internet, only allow the white list through.
-    # def freepost_params
-    #   params.require(:freepost).permit(:title, :content, :post_id)
-    # end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def freepost_params
+      params.require(:freepost).permit(:title, :content, :post_id)
+    end
 end
