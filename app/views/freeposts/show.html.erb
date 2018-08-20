@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @freepost.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @freepost.content %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @freepost.post_id %>
+</p>
+
+<h2>Comments</h2>
+<% @freepost.free_comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+
+  <p>
+  <%= link_to 'Destroy Comment', [comment.freepost, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @freepost, @freepost.free_comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_freepost_path(@freepost) %> |
+<%= link_to 'Back', freeposts_path %>

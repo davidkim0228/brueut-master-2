@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Freeposts</h1>
+
+<% if current_user %>
+
+  <p><%=current_user.uid %></p>
+  <a href="/logout">Sign Out</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Post</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @freeposts.each do |freepost| %>
+        <tr>
+          <td><%= freepost.title %></td>
+          <td><%= freepost.content %></td>
+          <td><%= freepost.post_id %></td>
+          <td><%= link_to 'Show', freepost %></td>
+          <td><%= link_to 'Edit', edit_freepost_path(freepost) %></td>
+          <td><%= link_to 'Destroy', freepost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Freepost', new_freepost_path %>
+
+<% else %>
+
+  <a href="login">Sign In</a>
+
+
+<% end %>

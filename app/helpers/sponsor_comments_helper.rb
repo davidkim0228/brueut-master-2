@@ -1,0 +1,2 @@
+module SponsorCommentsHelper
+end

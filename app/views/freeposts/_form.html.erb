@@ -1,0 +1,13 @@
+
+
+<form action="/freeposts/create" method="post">
+  <input type="hidden" name="post_id" value="<%= current_user.uid.to_s %>" type="text">
+  <p>Title: </p>
+  <input type="text" name="title" required>
+  <br>
+  <p>Content: </p>
+  <textarea name="content" rows="8" cols="80" type ='text'></textarea>
+  <br>
+  <button type="submit" > Submit </button>
+
+</form>

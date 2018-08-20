@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @jobpost.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @jobpost.content %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @jobpost.post_id %>
+</p>
+
+<h2>Comments</h2>
+<% @jobpost.job_comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+
+  <p>
+  <%= link_to 'Destroy Comment', [comment.jobpost, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @jobpost, @jobpost.job_comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_jobpost_path(@jobpost) %> |
+<%= link_to 'Back', jobposts_path %>

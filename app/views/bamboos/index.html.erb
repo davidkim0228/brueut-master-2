@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bamboos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bamboos.each do |bamboo| %>
+      <tr>
+        <td><%= bamboo.title %></td>
+        <td><%= bamboo.content %></td>
+        <td><%= bamboo.post_id %></td>
+        <td><%= link_to 'Show', bamboo %></td>
+        <td><%= link_to 'Edit', edit_bamboo_path(bamboo) %></td>
+        <td><%= link_to 'Destroy', bamboo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bamboo', new_bamboo_path %>

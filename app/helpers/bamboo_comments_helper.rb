@@ -1,0 +1,2 @@
+module BambooCommentsHelper
+end
