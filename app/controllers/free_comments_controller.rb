@@ -11,7 +11,7 @@ class FreeCommentsController < ApplicationController
     @comment.destroy
     redirect_to freepost_path(@freepost)
   end
- 
+
   private
     def comment_params
       params.require(:free_comment).permit(:commenter, :body)

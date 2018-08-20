@@ -7,6 +7,6 @@ class CreateGraduates < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :graduates, :post_id, unique: true
+    add_index :graduates, :post_id, unique: false
   end
 end

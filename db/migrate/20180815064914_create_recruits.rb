@@ -7,6 +7,6 @@ class CreateRecruits < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :recruits, :post_id, unique: true
+    add_index :recruits, :post_id, unique: false
   end
 end

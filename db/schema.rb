@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_232019) do
     t.string "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_bamboos_on_post_id", unique: true
+    t.index ["post_id"], name: "index_bamboos_on_post_id"
   end
 
   create_table "free_comments", force: :cascade do |t|
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_232019) do
     t.string "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_freeposts_on_post_id", unique: true
+    t.index ["post_id"], name: "index_freeposts_on_post_id"
   end
 
   create_table "grad_comments", force: :cascade do |t|
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_232019) do
     t.string "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_graduates_on_post_id", unique: true
+    t.index ["post_id"], name: "index_graduates_on_post_id"
   end
 
   create_table "job_comments", force: :cascade do |t|
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_232019) do
     t.string "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_jobposts_on_post_id", unique: true
+    t.index ["post_id"], name: "index_jobposts_on_post_id"
   end
 
   create_table "market_comments", force: :cascade do |t|
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_232019) do
     t.string "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_markets_on_post_id", unique: true
+    t.index ["post_id"], name: "index_markets_on_post_id"
   end
 
   create_table "recruit_comments", force: :cascade do |t|
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_232019) do
     t.string "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_recruits_on_post_id", unique: true
+    t.index ["post_id"], name: "index_recruits_on_post_id"
   end
 
   create_table "sponsor_comments", force: :cascade do |t|
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_232019) do
     t.string "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_sponsorposts_on_post_id", unique: true
+    t.index ["post_id"], name: "index_sponsorposts_on_post_id"
   end
 
   create_table "users", force: :cascade do |t|
