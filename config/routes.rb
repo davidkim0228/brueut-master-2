@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'aboutus', to: 'pages#aboutus'
   get 'aboutucla', to: 'pages#aboutucla'
   get 'aboutgroup', to: 'pages#aboutgroup'
+  get 'pages/home', to: 'pages#home'
 
   post '/freeposts/create' => 'freeposts#create'
 

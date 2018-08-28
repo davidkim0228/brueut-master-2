@@ -1,0 +1,132 @@
+
+
+body {
+/*	font-family: 'Markazi Text', serif;*/
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+
+.title_text {
+	color: #00A5E5;
+	font-weight: 700;
+	letter-spacing: 0.3rem;
+	text-shadow: 0 2px 2px #014374, 0 3px 3px #ACC9CC;
+}
+
+.title {
+	background: url(../BRUEUT/src/about_us.jpg);	
+	background-position: center;
+	background-size: cover;
+	padding: 5%;
+	text-align: center;
+}
+
+h3 {
+	font-size: 25px;
+}
+
+.content {
+	border: 0;
+/*	border: 2px solid rgba(232, 232, 232, 0.7);*/
+	padding: 2%;
+	margin: 0 auto;
+	max-width: 95%;
+
+}
+
+
+.btn-outline-primary {
+    background-color: white; /* Green */
+    font-weight: 700;
+    text-align: center;
+/*    display: inline-block;*/
+    font-size: 16px;
+    border-radius: 24px;
+    border: 2px inset #FFD346;
+    display: flex;
+    justify-content: center;
+    margin: 7% auto;
+    color: black;
+    padding: 0 50px;
+}
+
+
+
+#b_team {
+	color: #FFD346;
+	font-weight: 800;
+	text-shadow: 0 2px 3px #969686, 
+				0 4px 6px black;
+	font-size: 2.5em;
+}
+
+.dot {
+	border-radius: 50%;
+	border: 5px inset #FFD346;
+	box-shadow: 3px 3px #fac81d, 3px 3px black;
+	background: transparent;
+	height: 100px;
+	width: 100px;
+	display: inline-block;
+}
+
+.char_intro {
+	font-weight: 700;
+	color: white;
+}
+
+
+.rect {
+	border-radius: 30%;
+	border: 2px solid #00A5E5;
+	background: transparent;
+	height: 100px;
+	width: 100px;
+	display: inline-block;
+
+}
+
+/* bottom section */
+.bottom {
+	background-color: #394040;
+	height: 15%;
+}
+
+hr {
+	display: inline-block;
+	padding: 0;
+	min-width: 450px;
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color: white;
+	width: 40%;
+	padding-left: 5%;
+}
+
+.b_text {
+	color: white;
+	font-weight: 200;
+	padding: 2.5% 5%;
+}
+
+.b_text p {
+	margin: 0;
+}
+
+.sponser1 {
+	background: url(../BRUEUT/src/samsung.jpg);	
+	background-position: center;
+	background-size: 100% 100%;
+	width: 100%;
+	height: 50px;
+
+}
+.row {
+	width: 100%;
+	height: 100%;
+}
+

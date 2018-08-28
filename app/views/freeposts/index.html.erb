@@ -1,43 +1,76 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Freeposts</h1>
+<head>
+  <!-- <link rel="stylesheet" type="text/css" href="discussion_style.css"> -->
+	<link rel="stylesheet" type="text/css" href="default.css">
+	<link rel="stylesheet" type="text/css" href="table.css">
+	<link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet">
+</head>
 
-<% if current_user %>
+<body>
 
-  <p><%=current_user.uid %></p>
-  <a href="/logout">Sign Out</a>
+  <!-- <p id="notice"><%= notice %></p> -->
 
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Post</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+    <div class = "title">
+  		<h1>자유게시판</h1>
+  		<h2><i class="fas fa-pencil-alt"></i>Discussion Board</h2>
+  	</div>
 
-    <tbody>
-      <% @freeposts.each do |freepost| %>
-        <tr>
-          <td><%= freepost.title %></td>
+  	<!-- sec_up section -->
+  	<div class = "container sec_up">
+  			<div class = "row">
+  				<div class = "col-md-7">
+  					<div class="input-group mb-3">
+    						<input type="text" class="form-control" placeholder="검색어를 입력해 주세요" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    						<div class="input-group-append">
+      						<button class="btn btn-outline-secondary" type="button">검색</button>
+    						</div>
+  					</div>
+  				</div>
+  				<div class = "col-md-2"></div>
+  				<div class = "col-md-3">
+  					<!-- <button type="button" class="btn btn-outline-primary">글쓰기</button> -->
+            <%= button_to "글쓰기", new_freepost_path, :class => "btn btn-outline-primary", :method => :get %>
+  				</div>
+  			</div>
+  	</div>
+
+  	<!-- content table -->
+  	<table class="table content container">
+  	  <thead>
+  	    <tr>
+  	      <th scope="col">제목</th>
+  	      <th scope="col">등록자</th>
+  	      <th scope="col">등록일</th>
+  	      <th scope="col">조회수</th>
+    	      <th scope="col">추천</th>
+  	    </tr>
+  	  </thead>
+  	  <tbody>
+        <% @freeposts.each do |freepost| %>
+  	    <tr>
+          <td><%= link_to freepost.title, freepost %></td>
           <td><%= freepost.content %></td>
           <td><%= freepost.post_id %></td>
-          <td><%= link_to 'Show', freepost %></td>
-          <td><%= link_to 'Edit', edit_freepost_path(freepost) %></td>
-          <td><%= link_to 'Destroy', freepost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>10</td>
+          <td>1</td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <% end %>
+  	  </tbody>
+  	</table>
 
-  <br>
+  	<!-- sec_down section -->
+  	<div class = "sec_down container">
+  			<div class = "row">
+  				<div class = "col-md-2">
+  				</div>
+  				<div class = "col-md-8">
+  				<p id = "pagenum">
+  					<< 1 2 3 4 5 6 7 8 9 10 >>
+  				</p>
+  				</div>
+  				<div class = "col-md-2">
+  				</div>
+  			</div>
+  	</div>
 
-  <%= link_to 'New Freepost', new_freepost_path %>
-
-<% else %>
-
-  <a href="login">Sign In</a>
-
-
-<% end %>
+</body>

@@ -1,0 +1,17 @@
+
+thead {
+	background-color: rgba(232, 232, 232, 0.7);
+	border-top: 5px solid #FFD346;
+}
+
+.table tbody tr td {
+	text-align: center;
+}
+
+.table thead {
+	text-align: center;
+}
+
+.table tbody tr th {
+	padding-left: 3%;
+}

@@ -2,14 +2,115 @@
 <html>
   <head>
     <title>BrueutMaster</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+        <div class="personal-topnav">
+
+          <ul>
+            <li>
+              <a href="#">AUG 26 2018</a>
+            </li>
+            <% if current_user %>
+              <li class="right-side">
+                <a href="/logout">Sign out</a>
+              </li>
+              <li class="right-side">
+                <a href="#">Brueut님</a>
+              </li>
+
+            <% else %>
+              <li class="right-side">
+                <a href="/login">Sign in</a>
+              </li>
+            <% end %>
+
+            <li class="right-side">
+              <a href="/pages/home">Home</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="/pages/home">
+             <%= image_tag("logo.jpg", size: "30x30") %>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  소개
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "인사말", 'aboutus', :class=> "dropdown-item" %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "UCLA 소개", 'aboutucla', :class=> "dropdown-item" %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "한인동아리들 소개", 'aboutgroup', :class=> "dropdown-item"%>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  커뮤니티
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "자유게시판", freeposts_path, :class=> "dropdown-item" %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "대나무숲", bamboos_path, :class=> "dropdown-item" %>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">이벤트 캘린더</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  취업/진로
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "취업/진로 게시판", jobposts_path, :class=> "dropdown-item" %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "기업 채용정보", recruits_path, :class=> "dropdown-item" %>
+                </div>
+              </li>
+              <li class="nav-item">
+                <%= link_to "장터", markets_path, :class=> "nav-link" %>
+              </li>
+            </ul>
+
+           </div>
+         </nav>
     <%= yield %>
+
+    <div class = "bottom">
+   		<div class = "b_text">
+   			<p>
+   			전체 공지사항 | 문의/신고 | 브루이웃 운영팀: brueut@gmail.com
+   			</p>
+   		<hr>
+   			<p>
+   			Copyright (C) www.brueut.com All rights reserved.
+   			</p>
+   		</div>
+   	</div>
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>
